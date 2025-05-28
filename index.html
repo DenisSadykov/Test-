@@ -2,16 +2,16 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Видеопрактика</title>
+  <title>Видео-практика</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: #fff;
+      background: #fff;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       font-size: 16px;
-      line-height: 1.4;
       color: #000;
       max-width: 600px;
       margin: 0 auto;
@@ -23,33 +23,33 @@
       margin: 20px 16px 10px;
     }
 
-    .poster {
-      width: 100%;
-      display: block;
-      border-radius: 12px;
-      margin: 0 auto;
-    }
-
-    video {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      margin: 16px 0;
-      background-color: #000;
-    }
-
     .container {
       padding: 0 16px 40px;
+    }
+
+    .plyr {
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 16px;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Практика очищения</h1>
-    <img src="https://fs.getcourse.ru/fileservice/file/download/a/107111/sc/1/h/8a76347ae145f714c16429026f292eb0.jpg" alt="Обложка видео" class="poster" />
-    <video controls poster="https://fs.getcourse.ru/fileservice/file/download/a/107111/sc/1/h/8a76347ae145f714c16429026f292eb0.jpg">
-      <source src="https://fs.getcourse.ru/fileservice/file/download/a/107111/sc/101/h/b952cc4480540196d236db02b9b876ef.mp4" type="video/mp4">
+    <video id="player" playsinline controls poster="https://fs.getcourse.ru/fileservice/file/download/a/107111/sc/1/h/8a76347ae145f714c16429026f292eb0.jpg">
+      <source src="https://fs.getcourse.ru/fileservice/file/download/a/107111/sc/101/h/b952cc4480540196d236db02b9b876ef.mp4"
+      type="video/mp4" type="video/mp4" />
     </video>
   </div>
+
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script>
+    const player = new Plyr('#player', {
+      fullscreen: { enabled: true, fallback: true },
+      ratio: '16:9',
+      controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen']
+    });
+  </script>
 </body>
 </html>
